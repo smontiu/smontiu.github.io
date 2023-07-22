@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://montiu.com/sitemap.xml
