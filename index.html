@@ -2,15 +2,13 @@
 <html lang="en">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Personal website - Santiago Montiu Torguet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Santiago Montiu – CPTO for Scale-ups</title>
+  <meta name="description"
+    content="Santiago Montiu – CPTO for scale-ups. Scaling product, technology and AI-driven execution." />
   <meta name="author" content="Santiago Montiu Torguet">
   <meta name="robots" content="index, follow">
-
-  <title>Santiago Montiu</title>
-
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Santiago Montiu Torguet">
   <meta property="og:url" content="https://montiu.com">
@@ -19,111 +17,365 @@
   <meta property="profile:last_name" content="Montiu Torguet">
   <meta property="profile:username" content="montiu">
   <meta property="og:locale" content="en_US.utf-8">
-
   <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="canonical" href="https://montiu.com" />
+  <style>
+    :root {
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
+      --bg-primary: #ffffff;
+      --bg-subtle: #f8fafc;
+      --border-subtle: #e5e7eb;
+      --accent: #1e40af;
+    }
 
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    * {
+      box-sizing: border-box;
+    }
 
-  <!-- Custom fonts for this template -->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    body {
+      margin: 0;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-primary);
+      background: var(--bg-primary);
+      line-height: 1.6;
+    }
 
-  <!-- Custom styles for this template -->
-  <link href="css/clean-blog.min.css" rel="stylesheet">
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+    }
 
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    h1 {
+      font-size: 52px;
+      font-weight: 600;
+      margin: 0 0 16px 0;
+      letter-spacing: -0.02em;
+    }
+
+    h2 {
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    p {
+      font-size: 18px;
+      color: var(--text-secondary);
+    }
+
+    /* Buttons */
+    .actions {
+      margin-top: 40px;
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 500;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+    }
+
+    .btn-secondary {
+      border-color: var(--border-subtle);
+      color: var(--text-primary);
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero p.lead {
+      font-size: 22px;
+      color: var(--text-primary);
+      margin-top: 8px;
+    }
+
+    /* Executive summary */
+    .summary {
+      border-left: 3px solid var(--border-subtle);
+      padding-left: 24px;
+    }
+
+    /* Impact cards */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 32px;
+      background: #ffffff;
+    }
+
+    .metric {
+      font-size: 40px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .card ul {
+      margin-top: 20px;
+      padding-left: 18px;
+      color: var(--text-secondary);
+    }
+
+    /* AI section */
+    .ai {
+      background: var(--bg-subtle);
+      border-radius: 24px;
+      padding: 48px;
+    }
+
+    /* Principles */
+    .principles ol {
+      list-style: none;
+      padding: 0;
+      max-width: 720px;
+    }
+
+    .principles li {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .principles strong {
+      margin-right: 12px;
+    }
+
+    /* Expertise */
+    .expertise {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 40px;
+    }
+
+    .expertise ul {
+      margin-top: 16px;
+      padding-left: 18px;
+      color: var(--text-secondary);
+    }
+
+    /* Experience */
+    .experience ul {
+      list-style: none;
+      padding: 0;
+      font-size: 18px;
+    }
+
+    .experience li {
+      margin-bottom: 12px;
+    }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      padding-bottom: 160px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 40px;
+      }
+
+      section {
+        padding: 60px 0;
+      }
+
+      p {
+        font-size: 17px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand" href="/">Montiu</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/about.html">About me</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/contact.html">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <main class="container">
 
-  <!-- Page Header -->
-  <header class="masthead" style="background-image: url('img/home-bg.jpg')">
-    <div class="overlay"></div>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <div class="site-heading">
-            <h1>“The only strategy that is guaranteed to fail is not taking risks.”</h1>
-            <span class="subheading">Mark Zuckerberg, founder, Facebook</span>
-          </div>
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <h1>CPTO for Scale-ups</h1>
+        <p class="lead">Scaling Product, Technology & AI Execution</p>
+        <p>I help scale-ups grow by aligning product strategy, technology platforms, and pragmatic AI adoption to
+          deliver sustainable execution at scale.</p>
+        <div class="actions">
+          <a href="/assets/CTO_CV_EN.pdf" class="btn-primary">Download Executive CV</a>
+          <a href="mailto:montiu.torguet.santiago@gmail.com" class="btn-secondary">Get in touch</a>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-          <ul class="list-inline text-center">
-            <li class="list-inline-item">
-              <a href="https://lvldp.tumblr.com/">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-tumblr fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://www.linkedin.com/in/montiu/">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
-            <li class="list-inline-item">
-              <a href="https://github.com/smontiu">
-                <span class="fa-stack fa-lg">
-                  <i class="fas fa-circle fa-stack-2x"></i>
-                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                </span>
-              </a>
-            </li>
+    <!-- Executive Summary -->
+    <section>
+      <div class="summary">
+        <h2>Executive Summary</h2>
+        <p>I am a CPTO with over 15 years of experience leading product and engineering organizations through growth,
+          transformation, and scale. I partner closely with founders and leadership teams to translate business strategy
+          into product direction, platform investments, and execution models that deliver measurable outcomes.</p>
+      </div>
+    </section>
+
+    <!-- Impact -->
+    <section>
+      <h2>Where I’ve Made the Biggest Impact</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Vidoomy — Cost & Scale</h3>
+          <div class="metric">75%</div>
+          <p>Infrastructure cost reduction</p>
+          <ul>
+            <li>Improved performance and reliability</li>
+            <li>Multi-region, high-throughput platform</li>
+            <li>DevOps & SRE operating model</li>
           </ul>
-          <p class="copyright text-muted">Copyright &copy; montiu 2023</p>
+        </div>
+        <div class="card">
+          <h3>Sweep — Platform & Product</h3>
+          <div class="metric">£1.5M</div>
+          <p>Raised and scaled fintech PaaS</p>
+          <ul>
+            <li>Unified multi-product platform</li>
+            <li>Enterprise-grade scalability</li>
+            <li>International expansion</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Aon — Enterprise Transformation</h3>
+          <div class="metric">+15%</div>
+          <p>Conversion improvement</p>
+          <ul>
+            <li>50% reduction in component complexity</li>
+            <li>Shared horizontal services</li>
+            <li>Improved delivery speed</li>
+          </ul>
         </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js" async></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" async></script>
+    <!-- AI Section -->
+    <section>
+      <div class="ai">
+        <h2>AI as an Execution Lever</h2>
+        <p>I approach AI as an execution multiplier, not a feature checklist. My focus is on applying AI where it
+          improves product experience, increases team leverage, and reduces operational cost — always grounded in strong
+          data foundations and measurable impact.</p>
+      </div>
+    </section>
 
-  <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js" async></script>
+    <!-- Principles -->
+    <section class="principles">
+      <h2>How I Operate as a CPTO</h2>
+      <ol>
+        <li><strong>01</strong> Business → Product → Technology alignment</li>
+        <li><strong>02</strong> Pragmatic, value-driven AI adoption</li>
+        <li><strong>03</strong> Autonomous, accountable teams</li>
+        <li><strong>04</strong> Platform leverage over heroics</li>
+        <li><strong>05</strong> Sustainable delivery at scale</li>
+      </ol>
+    </section>
+
+    <!-- Expertise -->
+    <section>
+      <h2>Areas of Expertise</h2>
+      <div class="expertise">
+        <div>
+          <h3>Technology, Architecture & AI</h3>
+          <ul>
+            <li>Distributed systems & platforms</li>
+            <li>Multi-region cloud architecture</li>
+            <li>AI-enabled product capabilities</li>
+            <li>DevOps, SRE, observability</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Product, Leadership & Organization</h3>
+          <ul>
+            <li>Product–tech alignment</li>
+            <li>Engineering org design</li>
+            <li>Hiring, coaching, performance</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Business, Growth & Operations</h3>
+          <ul>
+            <li>Opex / Capex ownership</li>
+            <li>Vendor & partner management</li>
+            <li>OKRs, KPIs, transformation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="experience">
+      <h2>Experience Snapshot</h2>
+      <ul>
+        <li><strong>CTO</strong> — Sweep (Fintech PaaS)</li>
+        <li><strong>CTO</strong> — Vidoomy (Adtech)</li>
+        <li><strong>Tech Lead</strong> — Aon (Enterprise)</li>
+        <li><strong>Engineering Manager</strong> — Sngular</li>
+      </ul>
+      <p><a href="/assets/CTO_CV_EN.pdf">View full experience → Download CV</a></p>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+      <h2>Let’s Talk</h2>
+      <p>If you’re looking for a CPTO to scale product, technology, and AI capabilities, I’d be happy to connect.</p>
+      <div class="actions" style="justify-content: center;">
+        <a href="mailto:montiu.torguet.santiago@gmail.com" class="btn-primary">Get in touch</a>
+      </div>
+    </section>
+
+  </main>
 
 </body>
 
