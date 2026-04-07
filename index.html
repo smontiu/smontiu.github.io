@@ -68,10 +68,33 @@
       line-height: 1.6;
     }
 
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 12px 18px;
+      z-index: 1000;
+    }
+
+    .skip-link:focus,
+    .skip-link:active {
+      left: 24px;
+      top: 24px;
+    }
+
     a {
       color: var(--accent);
       text-decoration: none;
       font-weight: 500;
+    }
+
+    a:focus,
+    .btn-primary:focus,
+    .btn-secondary:focus {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
 
     a:hover {
@@ -256,13 +279,14 @@
 </head>
 
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <main class="container">
-
-    <!-- Hero -->
-    <section class="hero">
-      <div>
-        <h1>CPTO for Scale-ups</h1>
+  <main id="main-content" class="container">
+    <header>
+      <!-- Hero -->
+      <section class="hero">
+        <div>
+          <h1>CPTO for Scale-ups</h1>
         <p class="lead">Scaling Product, Technology & AI Execution</p>
         <p>I help scale-ups grow by aligning product strategy, technology platforms, and pragmatic AI adoption to
           deliver sustainable execution at scale.</p>
@@ -273,15 +297,16 @@
       </div>
     </section>
 
-    <!-- Executive Summary -->
-    <section>
-      <div class="summary">
-        <h2>Executive Summary</h2>
-        <p>I am a CPTO with over 15 years of experience leading product and engineering organizations through growth,
-          transformation, and scale. I partner closely with founders and leadership teams to translate business strategy
-          into product direction, platform investments, and execution models that deliver measurable outcomes.</p>
-      </div>
-    </section>
+      <!-- Executive Summary -->
+      <section>
+        <div class="summary">
+          <h2>Executive Summary</h2>
+          <p>I am a CPTO with over 15 years of experience leading product and engineering organizations through growth,
+            transformation, and scale. I partner closely with founders and leadership teams to translate business strategy
+            into product direction, platform investments, and execution models that deliver measurable outcomes.</p>
+        </div>
+      </section>
+    </header>
 
     <!-- Impact -->
     <section>
@@ -433,21 +458,21 @@
       <ul>
         <li><strong>CTO</strong> — Sweep (Fintech PaaS)</li>
         <li><strong>CTO</strong> — Vidoomy (Adtech)</li>
-        <li><strong>Tech Lead</strong> — Aon (Enterprise)</li>
-        <li><strong>Engineering Manager</strong> — Sngular</li>
+        <li><strong>Tech Lead</strong> — Aon (Insurance)</li>
+        <li><strong>Engineering Manager</strong> — Sngular (Consulting Software)</li>
       </ul>
       <p><a href="/assets/CTO_CV_EN.pdf">View full experience → Download CV</a></p>
     </section>
 
     <!-- Contact -->
-    <section class="contact">
+    <footer class="contact">
       <h2>Let's Talk</h2>
       <p>If you're looking for a CPTO to scale product, technology, and AI capabilities, I'd be happy to connect.</p>
       <div class="actions" style="justify-content: center;">
         <a href="mailto:montiu.torguet.santiago@gmail.com" class="btn-primary">Get in touch</a>
       </div>
       <p style="margin-top: 20px;"><a href="https://linkedin.com/in/montiu" target="_blank" rel="noopener noreferrer">Connect on LinkedIn</a></p>
-    </section>
+    </footer>
 
   </main>
 
