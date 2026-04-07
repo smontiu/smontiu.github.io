@@ -1,0 +1,13 @@
+# Santiago Montiu
+A CPTO personal website for growth-stage companies, showcasing product strategy, technology platforms, AI adoption, advisory roles, and collaborations.
+
+## Pages
+- [Home](https://montiu.com/): Personal homepage with executive summary, advisory roles, collaborations, and areas of expertise.
+- [CV](https://montiu.com/assets/CTO_CV_EN.pdf): Executive CV download.
+- [Contact](mailto:montiu.torguet.santiago@gmail.com): Direct email contact.
+
+## Topics
+- CPTO advisory for scale-ups
+- Product, technology, and AI execution
+- Platform scaling, architecture, and observability
+- Collaboration with developer communities and hackathon networks
