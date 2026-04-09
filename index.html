@@ -204,6 +204,16 @@
       margin-top: 8px;
     }
 
+    .p-job-title {
+      font-size: 22px;
+      color: var(--text-primary);
+      margin: 16px 0 8px 0;
+    }
+
+    .u-hidden {
+      display: none;
+    }
+
     /* Executive summary */
     .summary {
       border-left: 3px solid var(--border-subtle);
@@ -310,17 +320,20 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <main id="main-content" class="container">
-    <header>
+    <header class="h-card">
       <!-- Hero -->
       <section class="hero">
         <div>
-          <h1>CPTO for Scale-ups</h1>
-        <p class="lead">Scaling Product, Technology & AI Execution</p>
-        <p>I help scale-ups grow by aligning product strategy, technology platforms, and pragmatic AI adoption to
+          <h1 class="p-name">Santiago Montiu</h1>
+          <p class="p-job-title lead">CPTO for Scale-ups</p>
+          <p class="lead" style="font-size: 18px; margin-top: 8px;">Scaling Product, Technology & AI Execution</p>
+          <p class="p-summary">I help scale-ups grow by aligning product strategy, technology platforms, and pragmatic AI adoption to
           deliver sustainable execution at scale. <a href="#ai-section" aria-label="Learn more about AI as an execution lever">Learn more about AI</a>.</p>
+          <p class="u-hidden"><a href="https://montiu.com" class="u-url"></a></p>
+          <p class="u-hidden"><img src="https://montiu.com/img/santiago.montiu.torguet.jpg" class="u-photo" alt="Santiago Montiu"></p>
         <div class="actions">
           <a href="/assets/CTO_CV_EN.pdf" class="btn-primary" aria-label="Download Santiago Montiu's Executive CV">Download Executive CV</a>
-          <a href="mailto:montiu.torguet.santiago@gmail.com" class="btn-secondary" aria-label="Send an email to Santiago Montiu">Get in touch</a>
+          <a href="mailto:montiu.torguet.santiago@gmail.com" class="btn-secondary u-email" aria-label="Send an email to Santiago Montiu">Get in touch</a>
         </div>
       </div>
     </section>
@@ -448,33 +461,33 @@
       </ol>
     </section>
 
-    <!-- Expertise -->
+    <!-- Area of Expertise section with microformat support -->
     <section>
       <h2>Areas of Expertise</h2>
       <div class="expertise">
         <div>
           <h3>Technology, Architecture & AI</h3>
           <ul>
-            <li>Distributed systems & platforms</li>
-            <li>Multi-region cloud architecture</li>
-            <li>AI-enabled product capabilities</li>
-            <li>DevOps, SRE, observability</li>
+            <li class="p-skill">Distributed systems & platforms</li>
+            <li class="p-skill">Multi-region cloud architecture</li>
+            <li class="p-skill">AI-enabled product capabilities</li>
+            <li class="p-skill">DevOps, SRE, observability</li>
           </ul>
         </div>
         <div>
           <h3>Product, Leadership & Organization</h3>
           <ul>
-            <li>Product–tech alignment</li>
-            <li>Engineering org design</li>
-            <li>Hiring, coaching, performance</li>
+            <li class="p-skill">Product–tech alignment</li>
+            <li class="p-skill">Engineering org design</li>
+            <li class="p-skill">Hiring, coaching, performance</li>
           </ul>
         </div>
         <div>
           <h3>Business, Growth & Operations</h3>
           <ul>
-            <li>Opex / Capex ownership</li>
-            <li>Vendor & partner management</li>
-            <li>OKRs, KPIs, transformation</li>
+            <li class="p-skill">Opex / Capex ownership</li>
+            <li class="p-skill">Vendor & partner management</li>
+            <li class="p-skill">OKRs, KPIs, transformation</li>
           </ul>
         </div>
       </div>
@@ -484,10 +497,10 @@
     <section class="experience">
       <h2>Experience Snapshot</h2>
       <ul>
-        <li><strong>CTO</strong> — Sweep (Fintech PaaS)</li>
-        <li><strong>CTO</strong> — Vidoomy (Adtech)</li>
-        <li><strong>Tech Lead</strong> — Aon (Insurance)</li>
-        <li><strong>Engineering Manager</strong> — Sngular (Consulting Software)</li>
+        <li class="h-card"><strong class="p-name">CTO</strong> at <span class="p-affiliation">Sweep (Fintech PaaS)</span></li>
+        <li class="h-card"><strong class="p-name">CTO</strong> at <span class="p-affiliation">Vidoomy (Adtech)</span></li>
+        <li class="h-card"><strong class="p-name">Tech Lead</strong> at <span class="p-affiliation">Aon (Insurance)</span></li>
+        <li class="h-card"><strong class="p-name">Engineering Manager</strong> at <span class="p-affiliation">Sngular (Consulting Software)</span></li>
       </ul>
       <p><a href="/assets/CTO_CV_EN.pdf" aria-label="View and download Santiago Montiu's full CV">View full experience → Download CV</a></p>
     </section>
