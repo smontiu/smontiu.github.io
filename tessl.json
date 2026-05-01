@@ -1,0 +1,15 @@
+{
+  "name": "smontiu.github.io",
+  "mode": "vendored",
+  "dependencies": {
+    "resciencelab/opc-skills": {
+      "version": "16f93f1f107e476cb7ffc714f392d5f9b5d68173",
+      "source": "https://github.com/resciencelab/opc-skills",
+      "include": {
+        "skills": [
+          "seo-geo"
+        ]
+      }
+    }
+  }
+}
