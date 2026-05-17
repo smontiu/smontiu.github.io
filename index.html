@@ -140,7 +140,7 @@
     }
 
     section {
-      padding: 50px 0;
+      padding: 45px 0;
     }
 
     h1 {
@@ -197,7 +197,6 @@
 
     /* Hero */
     .hero {
-      min-height: 70vh;
       display: flex;
       align-items: center;
     }
@@ -250,6 +249,54 @@
       color: var(--text-secondary);
     }
 
+    .primary-nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--bg-primary);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 20px;
+      padding: 12px 0;
+    }
+
+    .nav-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: center;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-list::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nav-list a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      border-radius: 999px;
+      color: var(--text-primary);
+      background: rgba(30, 64, 175, 0.12);
+      text-decoration: none;
+      font-size: 15px;
+      white-space: nowrap;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-list a:hover,
+    .nav-list a:focus {
+      background: rgba(30, 64, 175, 0.14);
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+
     /* AI section */
     .ai {
       background: var(--bg-subtle);
@@ -300,11 +347,25 @@
     /* Contact */
     .contact {
       text-align: center;
-      padding-bottom: 160px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
+      .nav-list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px 12px;
+      }
+
+      .nav-list li:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .nav-list a {
+        width: 100%;
+        justify-content: center;
+      }
+
       h1 {
         font-size: 40px;
       }
@@ -324,9 +385,18 @@
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <main id="main-content" class="container">
+    <nav class="primary-nav" aria-label="Primary site navigation">
+      <ul class="nav-list">
+        <li><a href="#angel">Business Angel</a></li>
+        <li><a href="#cto-coaching">Coaching</a></li>
+        <li><a href="#advisory">Advisory</a></li>
+        <li><a href="#collaborations">Collab</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
     <header class="h-card">
       <!-- Hero -->
-      <section class="hero">
+      <section id="home" class="hero">
         <div>
           <h1 class="p-name">Santiago Montiu</h1>
           <p class="p-job-title lead">CPTO for Scale-ups</p>
@@ -343,7 +413,7 @@
     </section>
 
       <!-- Executive Summary -->
-      <section>
+      <section id="summary">
         <div class="summary">
           <h2>Executive Summary</h2>
           <p>I am a CPTO with over 15 years of experience leading product and engineering organizations through growth,
@@ -354,7 +424,7 @@
     </header>
 
     <!-- Impact -->
-    <section>
+    <section id="impact">
       <h2>Where I've Made the Biggest Impact</h2>
       <div class="cards">
         <div class="card">
@@ -401,7 +471,7 @@
     </section>
 
     <!-- Business Angel -->
-    <section>
+    <section id="angel">
       <h2>Business Angel</h2>
       <p>I usually start by collaborating closely with founders and teams, then move into an advisory role, and finally
         invest when the opportunity and momentum are aligned.</p>
@@ -418,8 +488,26 @@
       </div>
     </section>
 
+    <!-- CTO Coaching -->
+    <section id="cto-coaching">
+      <h2>Founder Coaching</h2>
+      <p>This service is designed for non-technical CEOs, founder engineers, and junior CTOs who need trusted support,
+         focused guidance, and regular follow-up without an intensive engagement.</p>
+      <div class="cards">
+        <div class="card">
+          <h3>Weekly support</h3>
+          <p>Light-touch coaching to improve CTO communication, execution, and decision-making while keeping the CEO aligned with technical progress.</p>
+          <ul>
+            <li>Review the current technology and team situation</li>
+            <li>Provide clear guidance for CTOs and founder engineers</li>
+            <li>Support CEO conversations, improvement suggestions, and follow-up</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
     <!-- Advisory -->
-    <section>
+    <section id="advisory">
       <h2>Advisory</h2>
       <p>I work with selected companies as a strategic technology and product advisor, supporting leadership teams on
         platform decisions, AI adoption, and execution at scale.</p>
@@ -446,7 +534,7 @@
     </section>
 
     <!-- Collaborations -->
-    <section>
+    <section id="collaborations">
       <h2>Collaborations</h2>
       <p>I collaborate with creative communities and technical networks to support founders, builders, and event-driven innovation.</p>
       <div class="cards">
@@ -472,7 +560,7 @@
     </section>
 
     <!-- Principles -->
-    <section class="principles">
+    <section id="principles" class="principles">
       <h2>How I Operate as a CPTO</h2>
       <ol>
         <li><strong>01</strong> Business → Product → Technology alignment</li>
@@ -484,7 +572,7 @@
     </section>
 
     <!-- Area of Expertise section with microformat support -->
-    <section>
+    <section id="expertise">
       <h2>Areas of Expertise</h2>
       <div class="expertise">
         <div>
@@ -516,8 +604,7 @@
     </section>
 
     <!-- Experience -->
-    <section class="experience">
-      <h2>Experience Snapshot</h2>
+    <section id="experience" class="experience">
       <ul>
         <li class="h-card"><strong class="p-name">CTO</strong> at <span class="p-affiliation">Sweep (Fintech PaaS)</span></li>
         <li class="h-card"><strong class="p-name">CTO</strong> at <span class="p-affiliation">Vidoomy (Adtech)</span></li>
@@ -528,7 +615,7 @@
     </section>
 
     <!-- Contact -->
-    <footer class="contact">
+    <footer id="contact" class="contact">
       <h2>Let's Talk</h2>
       <p>If you're looking for a CPTO to scale product, technology, and AI capabilities, I'd be happy to connect.</p>
       <div class="actions" style="justify-content: center;">
