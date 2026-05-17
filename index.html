@@ -150,6 +150,10 @@
       letter-spacing: -0.02em;
     }
 
+    .mobile-h1 {
+      display: none;
+    }
+
     h2 {
       font-size: 32px;
       font-weight: 600;
@@ -259,6 +263,30 @@
       padding: 12px 0;
     }
 
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: transparent;
+      padding: 12px;
+      margin-right: 24px;
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-toggle__bar {
+      display: block;
+      width: 24px;
+      height: 2px;
+      margin: 4px 0;
+      background: var(--text-primary);
+      border-radius: 1px;
+    }
+
+    .nav-panel {
+      display: block;
+    }
+
     .nav-list {
       display: flex;
       flex-wrap: wrap;
@@ -295,6 +323,10 @@
       background: rgba(30, 64, 175, 0.14);
       outline: 2px solid transparent;
       outline-offset: 2px;
+    }
+
+    .nav-backdrop {
+      display: none;
     }
 
     /* AI section */
@@ -351,19 +383,96 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      .nav-list {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 10px 12px;
+      .primary-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 6px 0;
       }
 
-      .nav-list li:last-child {
-        grid-column: 1 / -1;
+      h1 {
+        display: none;
+      }
+
+      .mobile-h1 {
+        white-space: nowrap;
+        font-size: 30px;
+        text-align: left;
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+
+      .nav-toggle {
+        display: inline-flex;
+        flex-direction: column;
+        margin-right: 0;
+      }
+
+      .nav-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(280px, 80%);
+        height: 100vh;
+        background: var(--bg-primary);
+        padding: 32px 20px;
+        box-shadow: -16px 0 40px rgba(15, 23, 42, 0.12);
+        transform: translateX(100%);
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        z-index: 55;
+      }
+
+      .nav-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.25s ease;
+        z-index: 50;
+        border: none;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+
+      .primary-nav.open .nav-panel {
+        transform: translateX(0);
+        visibility: visible;
+        opacity: 1;
+      }
+
+      .primary-nav.open .nav-backdrop {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-list {
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        padding: 0;
+      }
+
+      .nav-list li {
+        width: 100%;
       }
 
       .nav-list a {
         width: 100%;
-        justify-content: center;
+        padding: 16px 18px;
+        background: rgba(30, 64, 175, 0.08);
+        border-radius: 14px;
+        text-align: left;
+        font-size: 24px;
+      }
+
+      .nav-list li:last-child {
+        grid-column: auto;
       }
 
       h1 {
@@ -386,13 +495,22 @@
 
   <main id="main-content" class="container">
     <nav class="primary-nav" aria-label="Primary site navigation">
-      <ul class="nav-list">
-        <li><a href="#angel">Business Angel</a></li>
-        <li><a href="#cto-coaching">Coaching</a></li>
-        <li><a href="#advisory">Advisory</a></li>
-        <li><a href="#collaborations">Collab</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+      <h1 class="mobile-h1">Santiago Montiu</h1>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open navigation menu">
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+        <span class="nav-toggle__bar"></span>
+      </button>
+      <div class="nav-panel" id="nav-menu" role="dialog" aria-modal="true" aria-hidden="true" tabindex="-1">
+        <ul class="nav-list">
+          <li><a href="#angel">Business Angel</a></li>
+          <li><a href="#cto-coaching">Coaching</a></li>
+          <li><a href="#advisory">Advisory</a></li>
+          <li><a href="#collaborations">Collab</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <button class="nav-backdrop" type="button" aria-label="Close navigation menu" tabindex="-1"></button>
     </nav>
     <header class="h-card">
       <!-- Hero -->
@@ -626,6 +744,38 @@
 
   </main>
 
-</body>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const nav = document.querySelector('.primary-nav');
+      const toggle = nav.querySelector('.nav-toggle');
+      const backdrop = nav.querySelector('.nav-backdrop');
+      const links = nav.querySelectorAll('.nav-list a');
 
+      function setMenuOpen(open) {
+        nav.classList.toggle('open', open);
+        toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+      }
+
+      toggle.addEventListener('click', function () {
+        setMenuOpen(!nav.classList.contains('open'));
+      });
+
+      backdrop.addEventListener('click', function () {
+        setMenuOpen(false);
+      });
+
+      links.forEach(function (link) {
+        link.addEventListener('click', function () {
+          setMenuOpen(false);
+        });
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && nav.classList.contains('open')) {
+          setMenuOpen(false);
+        }
+      });
+    });
+  </script>
+</body>
 </html>
