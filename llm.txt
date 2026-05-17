@@ -1,5 +1,5 @@
 # Santiago Montiu
-A CPTO personal website for growth-stage companies, showcasing product strategy, technology platforms, AI adoption, advisory roles, and collaborations.
+A CPTO personal website for growth-stage companies, showcasing product strategy, technology platforms, AI adoption, business angel investing, advisory roles, and collaborations.
 
 ## Pages
 - [Home](https://montiu.com/): Personal homepage with executive summary, advisory roles, collaborations, and areas of expertise.
@@ -9,5 +9,6 @@ A CPTO personal website for growth-stage companies, showcasing product strategy,
 ## Topics
 - CPTO advisory for scale-ups
 - Product, technology, and AI execution
+- Business angel investing and strategic founder collaboration
 - Platform scaling, architecture, and observability
 - Collaboration with developer communities and hackathon networks
