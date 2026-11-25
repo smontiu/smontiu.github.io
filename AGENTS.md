@@ -20,3 +20,7 @@ This repository contains a personal website for Santiago Montiu.
 - The homepage is `index.html`.
 - The sitemap is `sitemap.xml`.
 - Assets are stored under `assets/` and `img/`.
+
+# Agent Rules <!-- tessl-managed -->
+
+@.tessl/RULES.md follow the [instructions](.tessl/RULES.md)
