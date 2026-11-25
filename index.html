@@ -316,7 +316,6 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      overflow-x: auto;
       -webkit-overflow-scrolling: touch;
     }
 
@@ -336,16 +335,20 @@
       transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .nav-list a:hover {
+    .nav-list a:hover,
+    .nav-list a:focus-visible,
+    .nav-list a[aria-current="location"] {
       background: #1e3a8a;
       color: #ffffff;
     }
 
     .nav-list a:focus-visible {
-      background: #1e3a8a;
-      color: #ffffff;
       outline: none;
       box-shadow: inset 0 0 0 3px #ffffff;
+    }
+
+    .nav-list a[aria-current="location"] {
+      font-weight: 600;
     }
 
     .nav-backdrop {
@@ -905,6 +908,61 @@
       const toggle = nav.querySelector('.nav-toggle');
       const backdrop = nav.querySelector('.nav-backdrop');
       const links = nav.querySelectorAll('.nav-list a');
+      const sections = Array.from(links).map(function (link) {
+        return {
+          link: link,
+          section: document.getElementById(link.hash.slice(1))
+        };
+      }).filter(function (item) {
+        return item.section;
+      });
+      let activeSectionFrame = 0;
+
+      function getLinkForHash() {
+        return Array.from(links).find(function (link) {
+          return link.hash === window.location.hash;
+        }) || null;
+      }
+
+      function setActiveLink(activeLink) {
+        links.forEach(function (link) {
+          if (link === activeLink) {
+            link.setAttribute('aria-current', 'location');
+          } else {
+            link.removeAttribute('aria-current');
+          }
+        });
+      }
+
+      function updateActiveSection() {
+        activeSectionFrame = 0;
+        const activationLine = window.scrollY + nav.getBoundingClientRect().height + 24;
+        let activeLink = null;
+
+        sections.forEach(function (item) {
+          if (item.section.getBoundingClientRect().top + window.scrollY <= activationLine) {
+            activeLink = item.link;
+          }
+        });
+
+        if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+          activeLink = links[links.length - 1];
+        }
+
+        setActiveLink(activeLink);
+
+        if (activeLink && window.location.hash !== activeLink.hash) {
+          history.replaceState(null, '', window.location.pathname + window.location.search + activeLink.hash);
+        } else if (!activeLink && getLinkForHash()) {
+          history.replaceState(null, '', window.location.pathname + window.location.search);
+        }
+      }
+
+      function scheduleActiveSectionUpdate() {
+        if (!activeSectionFrame) {
+          activeSectionFrame = window.requestAnimationFrame(updateActiveSection);
+        }
+      }
 
       function setMenuOpen(open) {
         nav.classList.toggle('open', open);
@@ -930,6 +988,16 @@
           setMenuOpen(false);
         }
       });
+
+      setActiveLink(getLinkForHash());
+      window.addEventListener('scroll', scheduleActiveSectionUpdate, { passive: true });
+      window.addEventListener('resize', scheduleActiveSectionUpdate);
+      window.addEventListener('hashchange', function () {
+        setActiveLink(getLinkForHash());
+        scheduleActiveSectionUpdate();
+      });
+      window.addEventListener('load', scheduleActiveSectionUpdate, { once: true });
+      window.addEventListener('pageshow', scheduleActiveSectionUpdate);
     });
   </script>
 </body>
