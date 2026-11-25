@@ -247,6 +247,20 @@
       margin-bottom: 8px;
     }
 
+    .impact-card__title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .impact-wordmark {
+      display: block;
+      flex: 0 0 88px;
+      width: 88px;
+      height: 40px;
+      object-fit: contain;
+    }
+
     .card ul {
       margin-top: 20px;
       padding-left: 18px;
@@ -614,7 +628,10 @@
       <h2>Where I've Made the Biggest Impact</h2>
       <div class="cards">
         <div class="card">
-          <h3>Vidoomy — Cost & Scale</h3>
+          <h3 class="impact-card__title">
+            <img class="impact-wordmark" src="/img/impact-vidoomy.png" alt="Vidoomy" width="200" height="44">
+            <span>— Cost &amp; Scale</span>
+          </h3>
           <div class="metric">75%</div>
           <p>Infrastructure cost reduction</p>
           <ul>
@@ -624,7 +641,10 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Sweep — Platform & Product</h3>
+          <h3 class="impact-card__title">
+            <img class="impact-wordmark" src="/img/impact-sweep.png" alt="Sweep" width="487" height="133">
+            <span>— Platform &amp; Product</span>
+          </h3>
           <div class="metric">£1.5M</div>
           <p>Raised and scaled fintech PaaS</p>
           <ul>
@@ -634,7 +654,10 @@
           </ul>
         </div>
         <div class="card">
-          <h3>Aon — Enterprise Transformation</h3>
+          <h3 class="impact-card__title">
+            <img class="impact-wordmark" src="/img/impact-aon.svg" alt="Aon" width="95" height="36">
+            <span>— Enterprise Transformation</span>
+          </h3>
           <div class="metric">+15%</div>
           <p>Conversion improvement</p>
           <ul>
