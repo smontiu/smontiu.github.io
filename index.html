@@ -351,17 +351,30 @@
     }
 
     .governance-grid .card {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      align-items: center;
+      gap: 16px 14px;
       padding: 24px;
+    }
+
+    .governance-illustration {
+      display: block;
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
     }
 
     .governance-grid h3 {
       font-size: 17px;
       line-height: 1.35;
+      margin: 0;
     }
 
     .governance-grid p {
+      grid-column: 1 / -1;
       font-size: 16px;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .governance-conclusion {
@@ -387,7 +400,7 @@
     /* Expertise */
     .expertise {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 40px;
     }
 
@@ -533,6 +546,12 @@
         grid-template-columns: 1fr;
       }
     }
+
+    @media (max-width: 567px) {
+      .expertise {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -646,18 +665,22 @@
         <p>My experience includes:</p>
         <div class="governance-grid" aria-label="Security, compliance and responsible AI experience">
           <article class="card">
+            <img class="governance-illustration" src="/img/iso27001-security.svg" alt="Monochrome shield and keyhole illustration" width="64" height="64">
             <h3>ISO 27001 — Information Security</h3>
             <p>Information security management, security controls, risk management, and secure engineering practices.</p>
           </article>
           <article class="card">
+            <img class="governance-illustration" src="/img/soc2-controls.svg" alt="Monochrome control document illustration" width="64" height="64">
             <h3>SOC 2 — Enterprise Trust &amp; Controls</h3>
             <p>Trust and security controls, operational processes, access management, and audit readiness.</p>
           </article>
           <article class="card">
+            <img class="governance-illustration" src="/img/gdpr-privacy.svg" alt="Monochrome personal data profile and lock illustration" width="64" height="64">
             <h3>GDPR — Data Protection</h3>
             <p>Data protection, privacy-by-design, personal data handling, and regulatory requirements.</p>
           </article>
           <article class="card">
+            <img class="governance-illustration" src="/img/eu-ai-governance.svg" alt="Monochrome human-centered AI network illustration" width="64" height="64">
             <h3>EU AI Act — Responsible AI</h3>
             <p>AI governance, regulatory requirements, risk management, and responsible AI adoption.</p>
           </article>
